@@ -4,6 +4,7 @@ import numpy as np
 import pandas as pd
 from scipy.interpolate import CubicSpline, pchip
 import matplotlib.pyplot as plt
+import os
 
 # Global variable to store the selected file path
 selected_file_path = None
@@ -46,10 +47,13 @@ def process_data(file_path, selected_file_path_2):
     # Calculate peak power
     P = mP / DC1
 
-    print(P.shape)
+
+    file_name_without_extension = os.path.splitext(os.path.basename(file_path))[0]
+
     # Save peak power to Excel file
+    output_file_path = f'{file_name_without_extension}_peak_power_output.xlsx'
     peak_power_df = pd.DataFrame({'Selion': Selion, 'Peak_Power': P})
-    peak_power_df.to_excel('peak_power_output.xlsx', index=False)
+    peak_power_df.to_excel(output_file_path, index=False)
 
     # Plot duty cycle and peak power
     plt.figure()
