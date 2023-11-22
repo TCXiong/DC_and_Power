@@ -32,6 +32,9 @@ def process_data(file_path, selected_file_path_2):
 
     xq = np.arange(0, 64, 1)
 
+    DC = np.interp(xq, DCm[:, 0], DCm[:, 1], left=np.nan, right=np.nan)
+
+
     # Interpolate duty cycle values using PCHIP
     pchip_interpolator = pchip(DCm[:, 0], DCm[:, 1])
     DC1 = pchip_interpolator(xq)
@@ -47,10 +50,16 @@ def process_data(file_path, selected_file_path_2):
     plt.figure()
 
     plt.subplot(2, 1, 1)
-    plt.plot(xq, DC1, 'r*', xq, DC2, 'gx', DCm[:, 0], DCm[:, 1], '.')
+    # plt.plot(xq, DC1, 'r*', xq, DC2, 'gx', DCm[:, 0], DCm[:, 1], '.')
+    # plt.ylabel('Duty Cycle')
+    # plt.xlabel('Selion')
+    # plt.legend(['PCHIP', 'Spline', 'Measured DC'])
+
+
+    plt.plot(xq, DC, 'b+', xq, DC1, 'r*', xq, DC2, 'gx', DCm[:, 0], DCm[:, 1], '.')
     plt.ylabel('Duty Cycle')
     plt.xlabel('Selion')
-    plt.legend(['PCHIP', 'Spline', 'Measured DC'])
+    plt.legend(['Interpolated DC', 'PCHIP', 'Spline', 'Measured DC'])
 
     plt.subplot(2, 1, 2)
     plt.plot(Selion, P, Selion, df.iloc[:, 6])
