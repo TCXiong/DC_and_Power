@@ -46,6 +46,11 @@ def process_data(file_path, selected_file_path_2):
     # Calculate peak power
     P = mP / DC1
 
+    print(P.shape)
+    # Save peak power to Excel file
+    peak_power_df = pd.DataFrame({'Selion': Selion, 'Peak_Power': P})
+    peak_power_df.to_excel('peak_power_output.xlsx', index=False)
+
     # Plot duty cycle and peak power
     plt.figure()
 
