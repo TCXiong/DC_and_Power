@@ -1,0 +1,15 @@
+Oscilloscope Automation Script Testing (Assisting Jaeyong):
+
+Collaborated with Jaeyong to conduct comprehensive testing of the oscilloscope automation script.
+Ensured that the script is functioning as intended, identifying and addressing any issues that arose during testing.
+Documented the test procedures and results for future reference.
+Implementation of DC and Power Plotting Script:
+
+Successfully implemented the script for plotting DC and power based on the provided MATLAB file.
+Conducted thorough testing to verify the accuracy and reliability of the script.
+Addressed any coding issues and optimized the script for improved performance.
+GUI Design for Plotting Script Operation:
+
+Initiated the design process for a user-friendly Graphical User Interface (GUI) to facilitate the operation of the plotting script.
+Considered usability principles to ensure an intuitive and efficient user experience.
+Collaborated with the team to gather feedback and make iterative improvements to the GUI design.
